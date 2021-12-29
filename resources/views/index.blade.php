@@ -29,7 +29,7 @@
         </div>
 
         <div class="" style="margin-bottom: 100px;">
-            @if(Auth::user()->github->personal_access_token)
+            @if((Auth::user()->github->personal_access_token??null))
             <h1> My Repositories </h1>
             <button type="button" class="btn btn-primary" id="get-all-repo"> Get All Repositories </button>
             <button type="button" class="btn btn-primary" id="get-starred-repo"> Get Starred Repositories </button>
@@ -49,6 +49,7 @@
         saveAccessToken("{{route('update-user')}}", document.getElementById('access-token').value);
     });
 
+    @if((Auth::user()->github->personal_access_token??null))
     // get all repos
     document.getElementById('get-all-repo').addEventListener('click', function(){
         getAllRepo("{{route('get-all-repo')}}");
@@ -58,6 +59,7 @@
     document.getElementById('get-starred-repo').addEventListener('click', function(){
         getAllStarredRepo("{{route('get-all-starred-repo')}}");
     });
+    @endif
 
 </script>
 @endpush

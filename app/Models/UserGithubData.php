@@ -14,14 +14,14 @@ class UserGithubData extends Model
      *
      * @var string
      */
-    protected $keyType = 'integer';
+    protected $keyType = 'string';
 
     /**
      * Indicates if the IDs are auto-incrementing.
      *
      * @var bool
      */
-    public $incrementing = true;
+    public $incrementing = false;
 
     /**
      * The database table used by the model.
@@ -39,6 +39,7 @@ class UserGithubData extends Model
      * fillable properties
      */
     protected $fillable = [
+        'id',
         'user_id',
         'personal_access_token'
     ];

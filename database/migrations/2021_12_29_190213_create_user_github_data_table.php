@@ -14,7 +14,7 @@ class CreateUserGithubDataTable extends Migration
     public function up()
     {
         Schema::create('user_github_data', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
             $table->uuid('user_id');
             $table->string('personal_access_token', 200)->nullable();
             $table->timestamp('created_at')->useCurrent();

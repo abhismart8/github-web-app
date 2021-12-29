@@ -92,7 +92,7 @@ class LoginController extends Controller
         $user = User::create($data);
 
         // user github data will also be created
-        UserGithubData::create(['user_id' => $user->id]);
+        UserGithubData::create(['id' => Str::uuid()->toString(),'user_id' => $user->id]);
 
         $userReturned = $user->only(['username', 'email']);
         $redirectUrl = $this->redirectAfterLogout;

@@ -18,6 +18,7 @@ if(!function_exists('getAllRepoAuthUser')){
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
         $result = curl_exec($ch);
+        
         return json_decode($result);
     }
 }

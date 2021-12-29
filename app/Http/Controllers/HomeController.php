@@ -15,6 +15,12 @@ class HomeController extends Controller
 
     public function getAllRepo(Request $request) {
         $allRepo = getAllRepoAuthUser(Auth::user()->github->personal_access_token);
+
+        // validating of data is valid
+        if(isset($allRepo->message) && $allRepo->message){
+            return response()->json(['status' => 'failed', 'message' => 'Access token is invalid']);
+        }
+        
         $allStarredRepo = '';
         foreach($allRepo as $repo){
             $allStarredRepo .= $this->getHtmlRepoDump($repo);
@@ -25,6 +31,12 @@ class HomeController extends Controller
 
     public function getAllStarredRepo(Request $request) {
         $allRepo = getAllRepoAuthUser(Auth::user()->github->personal_access_token);
+
+        // validating of data is valid
+        if(isset($allRepo->message) && $allRepo->message){
+            return response()->json(['status' => 'failed', 'message' => 'Access token is invalid']);
+        }
+
         $allStarredRepo = '';
         foreach($allRepo as $repo){
             if($repo->stargazers_count > 0){

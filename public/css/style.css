@@ -1,0 +1,49 @@
+.mr-15 {
+    margin-right: 15px;
+}
+.ml-15 {
+    margin-left: 15px;
+}
+.mt-15 {
+    margin-top: 15px;
+}
+.mb-15 {
+    margin-bottom: 15px;
+}
+.mt-30 {
+    margin-top: 30px;
+}
+.ml-30 {
+    margin-left: 30px;
+}
+.mb-30 {
+    margin-bottom: 30px;
+}
+.mr-30 {
+    margin-right: 30px;
+}
+
+
+/* style css */
+.login h1 {
+    font-size: 50px;
+}
+.row {
+    margin: 0px;
+}
+.signin {
+    padding: 50px 350px;
+}
+
+.access_token {
+    padding: 50px 350px;
+}
+.access_token label {
+    font-size: 30px;
+}
+.starred-repo-div, .repo-btns {
+    padding: 10px 400px;
+}
+.repo {
+    border: 1px solid grey; border-radius: 5px;
+}

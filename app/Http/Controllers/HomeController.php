@@ -13,6 +13,16 @@ class HomeController extends Controller
         return view('index');
     }
 
+    public function getAllRepo(Request $request) {
+        $allRepo = getAllRepoAuthUser(Auth::user()->github->personal_access_token);
+        $allStarredRepo = '';
+        foreach($allRepo as $repo){
+            $allStarredRepo .= $this->getHtmlRepoDump($repo);
+        }
+        return response()->json(['status' => 'success', 'message' => 'All repositories fetched successfully',
+        'data' => $allStarredRepo]);
+    }
+
     public function getAllStarredRepo(Request $request) {
         $allRepo = getAllRepoAuthUser(Auth::user()->github->personal_access_token);
         $allStarredRepo = '';
@@ -20,16 +30,6 @@ class HomeController extends Controller
             if($repo->stargazers_count > 0){
                 $allStarredRepo .= $this->getHtmlRepoDump($repo);
             }
-        }
-        return response()->json(['status' => 'success', 'message' => 'All starred repositories fetched successfully',
-        'data' => $allStarredRepo]);
-    }
-    
-    public function getAllRepo(Request $request) {
-        $allRepo = getAllRepoAuthUser(Auth::user()->github->personal_access_token);
-        $allStarredRepo = '';
-        foreach($allRepo as $repo){
-            $allStarredRepo .= $this->getHtmlRepoDump($repo);
         }
         return response()->json(['status' => 'success', 'message' => 'All starred repositories fetched successfully',
         'data' => $allStarredRepo]);

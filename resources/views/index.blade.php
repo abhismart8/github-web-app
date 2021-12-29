@@ -2,6 +2,9 @@
 
 @section('content')
 <div class="row">
+    <div class="col-sm-12">
+        <a href="/logout" class="btn btn-danger mt-15" style="float: right;"> Logout </a>
+    </div>
     <div class="col-sm-12 text-center">
         <div class="mt-15">
             <div class="access_token">
@@ -14,7 +17,7 @@
                         </div>
                         @if(Auth::user()->github->personal_access_token)
                         <div class="col-sm-2">
-                            <button type="button" class="btn btn-danger" id="reveal-access-token"> Reveal </button>
+                            <button type="button" class="btn btn-warning" id="reveal-access-token"> Reveal </button>
                         </div>
                         @endif
                     </div>

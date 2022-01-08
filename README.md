@@ -7,4 +7,4 @@ Its a simplest version of github using PHP Laravel Framework.
 Will be updating a lot of things in future, stay tuned..
 
 ## WEBSITE LINK
-http://github-web-app.herokuapp.com/
+https://github-web-app.herokuapp.com/

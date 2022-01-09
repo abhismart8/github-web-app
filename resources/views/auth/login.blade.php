@@ -8,7 +8,7 @@
         </div>
 
         <div class="mb-15">
-            <h1 class=""><strong> Github Repos </strong></h1>
+            <h1 class=""><strong> {{config('app.name')}} </strong></h1>
         </div>
 
         @if(!Auth::check())
